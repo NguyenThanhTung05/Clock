@@ -42,14 +42,12 @@ public class Main extends JFrame {
         add(panel2);
         setVisible(true);
 
-        // Tạo một luồng mới để cập nhật thời gian liên tục
         Thread updateTimeThread = new Thread(new Runnable() {
             @Override
             public void run() {
                 while (true) {
                     updateTime();
                     try {
-                        // Đợi 1 giây trước khi cập nhật thời gian lại
                         Thread.sleep(1000);
                     } catch (InterruptedException ex) {
                         ex.printStackTrace();

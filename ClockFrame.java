@@ -21,18 +21,15 @@ public class ClockFrame extends JFrame implements Runnable {
 
         add(timeLabel);
 
-        // Khởi tạo và bắt đầu luồng để cập nhật thời gian
         Thread updateTimeThread = new Thread(this);
         updateTimeThread.start();
     }
 
-    // Phương thức để cập nhật thời gian trong luồng độc lập
     @Override
     public void run() {
         while (true) {
             updateTime();
             try {
-                // Đợi 1 giây trước khi cập nhật thời gian lại
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
